@@ -5,3 +5,6 @@ puts "Here are your letters:"
 grid = generate_grid
 puts grid.join(" ")
 puts "*****************************************************"
+
+puts "What's the longest word you can find?"
+
