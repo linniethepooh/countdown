@@ -18,3 +18,8 @@ def included?(answer, grid)
 end
 
 
+def english_word?(word)
+  response = open("https://wagon-dictionary.herokuapp.com/#{word}")
+  json = JSON.parse(response.read)
+  return json['found']
+end
