@@ -23,12 +23,21 @@ def english_word?(word)
   return json['found']
 end
 
+def play_game(answer, grid, start_time, end_time)
+  result = { time: end_time - start_time }
+
+  message = message(answer, grid)
+  result[:message] = message.last
+
+  result
+end
+
 def message(answer, grid)
   if included?(answer.upcase, grid)
     if english_word?(answer)
       ["Well done!"]
     else
-      ["#{answer} is not an english word."]
+      ["#{answer.capitalize} is not an english word."]
     end
   else
     ["Can't be built out of letters in the grid."]
