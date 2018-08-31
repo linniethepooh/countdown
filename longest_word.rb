@@ -9,7 +9,7 @@ end
 
 def included?(answer, grid)
   answer.chars do |letter|
-    if grid.include? letter
+    if grid.include? letter.upcase
       return true
     else
       return false

@@ -1,3 +1,3 @@
 # Countdown
 
-Simplified version of Countdown
+Simplified version of Countdown using dictionary API.

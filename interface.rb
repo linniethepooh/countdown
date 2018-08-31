@@ -8,3 +8,6 @@ puts "*****************************************************"
 
 puts "What's the longest word you can find?"
 
+answer = gets.chomp
+
+puts included?(answer, grid)
