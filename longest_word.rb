@@ -23,23 +23,29 @@ def english_word?(word)
   return json['found']
 end
 
+def compute_score(answer, time_taken)
+  time_taken > 60.0 ? 0 : answer.size
+end
+
 def play_game(answer, grid, start_time, end_time)
   result = { time: end_time - start_time }
 
-  message = message(answer, grid)
-  result[:message] = message.last
+  score_and_message = score_and_message(answer, grid, result[:time])
+  result[:score] = score_and_message.first
+  result[:message] = score_and_message.last
 
   result
 end
 
-def message(answer, grid)
+def score_and_message(answer, grid, time)
   if included?(answer.upcase, grid)
     if english_word?(answer)
-      ["Well done!"]
+      score = compute_score(answer, time)
+      [score, "Well done!"]
     else
-      ["#{answer.capitalize} is not an english word."]
+      [0, "#{answer} is not an english word."]
     end
   else
-    ["Can't be built out of letters in the grid."]
+    [0, "Can't be built out of letter on the grid."]
   end
 end
