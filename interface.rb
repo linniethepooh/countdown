@@ -10,6 +10,4 @@ puts "What's the longest word you can find?"
 
 answer = gets.chomp
 
-puts included?(answer, grid)
-
-puts english_word?(answer)
+puts message(answer, grid)
